@@ -92,8 +92,17 @@ public class MainActivity extends AppCompatActivity {
                                 String screenContent = calculatorScreen.getText().toString();
                                 String secondNumberString = screenContent.substring(secondNumberIndex, screenContent.length());
                                 double secondNumber = Double.parseDouble(secondNumberString);
-                                secondNumber+=firstNumber;
-                                calculatorScreen.setText(String.valueOf(secondNumber));
+                                //this is where the addition actually happens
+                                double result = secondNumber+=firstNumber;
+                                //insert broken code command
+                                double range = (result - firstNumber) + 1;
+                                double brokenResult = (int)(Math.random() * range) + firstNumber;
+                                if(brokenResult==result){
+                                    brokenResult-=1;
+                                    calculatorScreen.setText(String.valueOf(brokenResult));
+                                } else {
+                                    calculatorScreen.setText(String.valueOf(brokenResult));
+                                }
 
                             }
                         }
