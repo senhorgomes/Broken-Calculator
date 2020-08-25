@@ -8,6 +8,7 @@ import android.widget.TextView;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+
     private boolean isOpPressed = false;
 
     private double firstNumber = 0;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         final Button addition = findViewById(R.id.addition);
         final Button subtraction = findViewById(R.id.subtraction);
         final Button dot = findViewById(R.id.dot);
-        final Button equal = findViewById(R.id.equal);
+        final Button equals = findViewById(R.id.equals);
         final Button del = findViewById(R.id.del);
         final Button clearEverything = findViewById(R.id.clearEverything);
 
@@ -81,29 +82,29 @@ public class MainActivity extends AppCompatActivity {
                         calculatorScreen.append("9");
 
                         break;
-                    case R.id.addition:
-                        String screenContent = calculatorScreen.getText().toString();
-                        firstNumber = Double.parseDouble(screenContent);
-                        calculatorScreen.append("+");
-                        secondNumberIndex = (screenContent.length() + 1);
-                        isOpPressed = true;
-                        currentOp = '+';
-                        break;
                     case R.id.dot:
                         calculatorScreen.append(".");
 
                         break;
-                    case R.id.equal:
+                    case R.id.equals:
                         if(isOpPressed) {
-                            if(currentOp == '+') {
-                                String screenContents = calculatorScreen.getText().toString();
-                                String secondNumberString = screenContents.substring(secondNumberIndex, screenContents.length());
+                            if(currentOp=='+'){
+                                String screenContent = calculatorScreen.getText().toString();
+                                String secondNumberString = screenContent.substring(secondNumberIndex, screenContent.length());
                                 double secondNumber = Double.parseDouble(secondNumberString);
                                 secondNumber+=firstNumber;
                                 calculatorScreen.setText(String.valueOf(secondNumber));
 
                             }
                         }
+                        break;
+                    case R.id.addition:
+                        String screenContent = calculatorScreen.getText().toString();
+                        secondNumberIndex = screenContent.length() + 1;
+                        firstNumber = Double.parseDouble(screenContent);
+                        calculatorScreen.append("+");
+                        isOpPressed = true;
+                        currentOp = '+';
                         break;
                     case R.id.subtraction:
                         //calculatorScreen.append("2");
@@ -136,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
         division.setOnClickListener(calculatorListener);
         multiplication.setOnClickListener(calculatorListener);
         dot.setOnClickListener(calculatorListener);
-        equal.setOnClickListener(calculatorListener);
+        equals.setOnClickListener(calculatorListener);
         del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
