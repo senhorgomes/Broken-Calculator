@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                                 String secondNumberString = screenContent.substring(secondNumberIndex, screenContent.length());
                                 double secondNumber = Double.parseDouble(secondNumberString);
                                 //this is where the addition actually happens
-                                double result = firstNumber+=secondNumber;
+                                double result = secondNumber+=firstNumber;
                                 //insert broken code command
                                 double range = (result - firstNumber) + 1;
                                 double brokenResult = (int)(Math.random() * range) + firstNumber;
@@ -103,7 +103,22 @@ public class MainActivity extends AppCompatActivity {
                                 } else {
                                     calculatorScreen.setText(String.valueOf(brokenResult));
                                 }
-
+                            }
+                            if(currentOp=='-'){
+                                String screenContent = calculatorScreen.getText().toString();
+                                String secondNumberString = screenContent.substring(secondNumberIndex, screenContent.length());
+                                double secondNumber = Double.parseDouble(secondNumberString);
+                                //this is where the addition actually happens
+                                double result = secondNumber+=firstNumber;
+                                //insert broken code command
+                                double range = (result - firstNumber) + 1;
+                                double brokenResult = (int)(Math.random() * range) + firstNumber;
+                                if(brokenResult==result){
+                                    brokenResult+=1;
+                                    calculatorScreen.setText(String.valueOf(brokenResult));
+                                } else {
+                                    calculatorScreen.setText(String.valueOf(brokenResult));
+                                }
                             }
                         }
                         break;
@@ -116,7 +131,12 @@ public class MainActivity extends AppCompatActivity {
                         currentOp = '+';
                         break;
                     case R.id.subtraction:
-                        //calculatorScreen.append("2");
+                        screenContent = calculatorScreen.getText().toString();
+                        secondNumberIndex = screenContent.length() + 1;
+                        firstNumber = Double.parseDouble(screenContent);
+                        calculatorScreen.append("-");
+                        isOpPressed = true;
+                        currentOp = '-';
 
                         break;
                     case R.id.multiplication:
