@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                                 String secondNumberString = screenContent.substring(secondNumberIndex, screenContent.length());
                                 double secondNumber = Double.parseDouble(secondNumberString);
                                 //this is where the addition actually happens
-                                double result = secondNumber+=firstNumber;
+                                double result = firstNumber+=secondNumber;
                                 //insert broken code command
                                 double range = (result - firstNumber) + 1;
                                 double brokenResult = (int)(Math.random() * range) + firstNumber;
