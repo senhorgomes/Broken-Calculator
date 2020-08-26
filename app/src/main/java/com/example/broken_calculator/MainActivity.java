@@ -108,10 +108,11 @@ public class MainActivity extends AppCompatActivity {
                                 String screenContent = calculatorScreen.getText().toString();
                                 String secondNumberString = screenContent.substring(secondNumberIndex, screenContent.length());
                                 double secondNumber = Double.parseDouble(secondNumberString);
-                                //this is where the addition actually happens
-                                double result = firstNumber-=secondNumber;
+                                //this is where the subtraction actually happens, this variable will be used for conditional check
+                                double result = firstNumber-secondNumber;
                                 //insert broken code command
-                                double range = (result - secondNumber) + 1;
+                                double range = (firstNumber - secondNumber) + 1;
+                                //Randomizes answer
                                 double brokenResult = (int)(Math.random() * range) + secondNumber;
                                 if(brokenResult==result){
                                     brokenResult+=1;
