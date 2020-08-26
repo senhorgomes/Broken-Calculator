@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                                 //Randomizes answer
                                 double brokenResult = (int)(Math.random() * range) + secondNumber;
                                 if(brokenResult==result){
-                                    brokenResult+=1;
+                                    brokenResult-=1;
                                     calculatorScreen.setText(String.valueOf(brokenResult));
                                 } else {
                                     calculatorScreen.setText(String.valueOf(brokenResult));
