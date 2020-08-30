@@ -120,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
                                 } else {
                                     calculatorScreen.setText(String.valueOf(brokenResult));
                                 }
+                                //Answer needs to be above or below actual result
                             }
                         }
                         break;
