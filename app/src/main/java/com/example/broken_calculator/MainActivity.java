@@ -127,9 +127,9 @@ public class MainActivity extends AppCompatActivity {
                                 //insert broken code command
                                 double range = (firstNumber - result) + 1;
                                 //Randomizes answer
-                                double brokenResult = (int)(Math.random() * range) + firstNumber;
+                                double brokenResult = (int)(Math.random() * range) + result;
                                 if(brokenResult==result){
-                                    brokenResult-=1;
+                                    brokenResult+=1;
                                     calculatorScreen.setText(String.valueOf(brokenResult));
                                 } else {
                                     calculatorScreen.setText(String.valueOf(brokenResult));
