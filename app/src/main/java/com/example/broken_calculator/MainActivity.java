@@ -3,6 +3,7 @@ package com.example.broken_calculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
@@ -92,17 +93,20 @@ public class MainActivity extends AppCompatActivity {
                                 String screenContent = calculatorScreen.getText().toString();
                                 String secondNumberString = screenContent.substring(secondNumberIndex, screenContent.length());
                                 double secondNumber = Double.parseDouble(secondNumberString);
-                                double smallNumber = 0;
                                 double bigNumber = 0;
+                                // Determines which number is bigger
                                 if(secondNumber > firstNumber){
-                                    smallNumber = firstNumber;
                                     bigNumber = secondNumber;
-                                } else
+                                    System.out.println(bigNumber);
+                                } else {
+                                    bigNumber = firstNumber;
+                                    System.out.println(bigNumber);
+                                }
                                 //this is where the addition actually happens
-                                double result = secondNumber+=firstNumber;
+                                double result = firstNumber+=secondNumber;
                                 //insert broken code command
-                                double range = (result - firstNumber) + 1;
-                                double brokenResult = (int)(Math.random() * range) + firstNumber;
+                                double range = (result - bigNumber) + 1;
+                                double brokenResult = (int)(Math.random() * range) + bigNumber;
                                 if(brokenResult==result){
                                     brokenResult-=1;
                                     calculatorScreen.setText(String.valueOf(brokenResult));
@@ -114,8 +118,19 @@ public class MainActivity extends AppCompatActivity {
                                 String screenContent = calculatorScreen.getText().toString();
                                 String secondNumberString = screenContent.substring(secondNumberIndex, screenContent.length());
                                 double secondNumber = Double.parseDouble(secondNumberString);
+                                double bigNumber = 0;
+                                // Determines which number is bigger
+                                if(secondNumber > firstNumber){
+                                    bigNumber = secondNumber;
+                                    System.out.println(bigNumber);
+                                } else {
+                                    bigNumber = firstNumber;
+                                    System.out.println(bigNumber);
+                                }
                                 //this is where the subtraction actually happens, this variable will be used for conditional check
                                 double result = firstNumber-secondNumber;
+                                //Broken answer needs to be greater or lesser than result
+                                //
                                 //insert broken code command
                                 double range = (firstNumber - secondNumber) + 1;
                                 //Randomizes answer
