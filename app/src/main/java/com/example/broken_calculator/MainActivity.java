@@ -118,23 +118,16 @@ public class MainActivity extends AppCompatActivity {
                                 String screenContent = calculatorScreen.getText().toString();
                                 String secondNumberString = screenContent.substring(secondNumberIndex, screenContent.length());
                                 double secondNumber = Double.parseDouble(secondNumberString);
-                                double bigNumber = 0;
-                                // Determines which number is bigger
-                                if(secondNumber > firstNumber){
-                                    bigNumber = secondNumber;
-                                    System.out.println(bigNumber);
-                                } else {
-                                    bigNumber = firstNumber;
-                                    System.out.println(bigNumber);
-                                }
                                 //this is where the subtraction actually happens, this variable will be used for conditional check
                                 double result = firstNumber-secondNumber;
                                 //Broken answer needs to be greater or lesser than result
-                                //
+                                //Make a random number
+                                //If number is 2 then max is firstNumber and min is result
+                                //Else max is result and min is secondNumber
                                 //insert broken code command
-                                double range = (firstNumber - secondNumber) + 1;
+                                double range = (firstNumber - result) + 1;
                                 //Randomizes answer
-                                double brokenResult = (int)(Math.random() * range) + secondNumber;
+                                double brokenResult = (int)(Math.random() * range) + firstNumber;
                                 if(brokenResult==result){
                                     brokenResult-=1;
                                     calculatorScreen.setText(String.valueOf(brokenResult));
