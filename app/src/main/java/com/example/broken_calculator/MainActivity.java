@@ -122,12 +122,22 @@ public class MainActivity extends AppCompatActivity {
                                 double result = firstNumber-secondNumber;
                                 //Broken answer needs to be greater or lesser than result
                                 //Make a random number
+                                double rangeRandom = (2 - 1) + 1;
+                                double randomNumber = (int)(Math.random() * rangeRandom) + result;
+                                double range  = 0;
+                                double brokenResult = 0;
+                                //double range = (firstNumber - result) + 1;
                                 //If number is 2 then max is firstNumber and min is result
+                                if(randomNumber == 2) {
+                                    range = (firstNumber - result) + 1;
+                                    brokenResult = (int)(Math.random() * range) + result;
+                                } else {
                                 //Else max is result and min is secondNumber
+                                    range = (result - secondNumber) + 1;
+                                    brokenResult = (int)(Math.random() * range) + secondNumber;
+                                }
                                 //insert broken code command
-                                double range = (firstNumber - result) + 1;
                                 //Randomizes answer
-                                double brokenResult = (int)(Math.random() * range) + result;
                                 if(brokenResult==result){
                                     brokenResult+=1;
                                     calculatorScreen.setText(String.valueOf(brokenResult));
@@ -156,7 +166,12 @@ public class MainActivity extends AppCompatActivity {
 
                         break;
                     case R.id.multiplication:
-                        //calculatorScreen.append("2");
+                        screenContent = calculatorScreen.getText().toString();
+                        secondNumberIndex = screenContent.length() + 1;
+                        firstNumber = Double.parseDouble(screenContent);
+                        calculatorScreen.append("×");
+                        isOpPressed = true;
+                        currentOp = '×';
 
                         break;
                     case R.id.division:
