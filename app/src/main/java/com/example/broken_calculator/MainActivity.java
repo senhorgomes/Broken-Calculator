@@ -146,6 +146,9 @@ public class MainActivity extends AppCompatActivity {
                                 }
                                 //Answer needs to be above or below actual result
                             }
+                            if(currentOp=='×'){
+
+                            }
                         }
                         break;
                     case R.id.addition:
