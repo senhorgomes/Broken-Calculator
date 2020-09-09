@@ -151,12 +151,15 @@ public class MainActivity extends AppCompatActivity {
                                 String secondNumberString = screenContent.substring(secondNumberIndex, screenContent.length());
                                 double secondNumber = Double.parseDouble(secondNumberString);
                                 double smallNumber = 0;
+                                double bigNumber = 0;
                                 // Determines which number is bigger
                                 if(secondNumber < firstNumber){
                                     smallNumber = secondNumber;
+                                    bigNumber = firstNumber;
                                     System.out.println(smallNumber);
                                 } else {
                                     smallNumber = firstNumber;
+                                    bigNumber = secondNumber;
                                     System.out.println(smallNumber);
                                 }
                                 //this is where the multiplication actually happens
@@ -164,9 +167,10 @@ public class MainActivity extends AppCompatActivity {
                                 System.out.println(result);
                                 //insert broken code command
                                 double range = (smallNumber - 1) + 1;
-                                double brokenResult = (int)(Math.random() * range) + 1;
+                                double brokenMultiplier = (int)(Math.random() * range) + 1;
+                                double brokenResult = bigNumber*brokenMultiplier;
                                 if(brokenResult==result){
-                                    brokenResult+=1;
+                                    brokenResult+=bigNumber;
                                     calculatorScreen.setText(String.valueOf(brokenResult));
                                 } else {
                                     calculatorScreen.setText(String.valueOf(brokenResult));
