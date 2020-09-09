@@ -147,7 +147,30 @@ public class MainActivity extends AppCompatActivity {
                                 //Answer needs to be above or below actual result
                             }
                             if(currentOp=='×'){
-
+                                String screenContent = calculatorScreen.getText().toString();
+                                String secondNumberString = screenContent.substring(secondNumberIndex, screenContent.length());
+                                double secondNumber = Double.parseDouble(secondNumberString);
+                                double smallNumber = 0;
+                                // Determines which number is bigger
+                                if(secondNumber < firstNumber){
+                                    smallNumber = secondNumber;
+                                    System.out.println(smallNumber);
+                                } else {
+                                    smallNumber = firstNumber;
+                                    System.out.println(smallNumber);
+                                }
+                                //this is where the multiplication actually happens
+                                double result = firstNumber*secondNumber;
+                                System.out.println(result);
+                                //insert broken code command
+                                double range = (smallNumber - 1) + 1;
+                                double brokenResult = (int)(Math.random() * range) + 1;
+                                if(brokenResult==result){
+                                    brokenResult+=1;
+                                    calculatorScreen.setText(String.valueOf(brokenResult));
+                                } else {
+                                    calculatorScreen.setText(String.valueOf(brokenResult));
+                                }
                             }
                         }
                         break;
